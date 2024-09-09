@@ -170,7 +170,8 @@ class ExecuTorchLlamaJni
           prompt->toStdString(),
           seq_len,
           [callback](std::string result) { callback->onResult(result); },
-          [callback](const Stats& result) { callback->onStats(result); });
+          [callback](const Stats& result) { callback->onStats(result); },
+          echo);
     } else if (model_type_category_ == MODEL_TYPE_CATEGORY_LLM) {
       runner_->generate(
           prompt->toStdString(),
